@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora - Paulo Cesar</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <!-- CONTAINER 1 - CALCULATION RESULT-->
+    <section class="container-result">
+      <h1 id="result"></h1>
+    </section>
+
+    <!-- CONTAINER 2 - DISPLAY -->
+    <section class="container-display">
+      <textarea class="text-display" id="display"></textarea>
+    </section>
+
+    <!--  CONTAINER 3 - BUTTONS -->
+    <section class="container-buttons">
+      <input
+        type="button"
+        class="button-delete"
+        value="⌫"
+        onclick="DeleteValue()"
+      />
+      <input type="button" value="(" onclick="InsertValue('(')" />
+      <input type="button" value=")" onclick="InsertValue(')')" />
+      <input type="button" value="C" onclick="ClearDisplay()" />
+      <input type="button" value="π" onclick="InsertValue('π')" />
+      <input type="button" value="7" onclick="InsertValue(7)" />
+      <input type="button" value="8" onclick="InsertValue(8)" />
+      <input type="button" value="9" onclick="InsertValue(9)" />
+      <input type="button" value="/" onclick="InsertSignal('/')" />
+      <input type="button" value="√" onclick="CalculateSqrt()" />
+      <input type="button" value="4" onclick="InsertValue(4)" />
+      <input type="button" value="5" onclick="InsertValue(5)" />
+      <input type="button" value="6" onclick="InsertValue(6)" />
+      <input type="button" value="x" onclick="InsertSignal('*')" />
+      <input type="button" value="X²" onclick="CalculateSquared()" />
+      <input type="button" value="1" onclick="InsertValue(1)" />
+      <input type="button" value="2" onclick="InsertValue(2)" />
+      <input type="button" value="3" onclick="InsertValue(3)" />
+      <input type="button" value="-" onclick="InsertSignal('-')" />
+      <input
+        type="button"
+        value="="
+        class="button-equal"
+        onclick="ViewResult(document.getElementById('display').value)"
+      />
+      <input type="button" value="0" onclick="InsertValue(0)" />
+      <input type="button" value="," onclick="InsertValue('.')" />
+      <input type="button" value="%" onclick="InsertSignal('%')" />
+      <input type="button" value="+" onclick="InsertSignal('+')" />
+    </section>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+* {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 1fr 70px 250px;
+  justify-items: center;
+}
+
+.container-result {
+  width: 95%;
+  max-width: 500px;
+  background-color: #252525;
+  margin-top: 10px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+#result {
+  margin-right: 10px;
+}
+
+.container-display {
+  width: 95%;
+  max-width: 500px;
+  background-color: #272727;
+  display: grid;
+}
+
+.text-display {
+  padding: 10px 0 0 10px;
+  border: none;
+  background-color: #272727;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.45);
+  resize: none;
+}
+
+.text-display:focus {
+  outline: none;
+}
+
+.container-buttons {
+  width: 95%;
+  max-width: 500px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-color: #303030;
+}
+
+.container-buttons input {
+  margin: 3px 3px 3px 3px;
+  border-radius: 5px;
+  border: none;
+  background-color: #303030;
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.container-buttons input:active {
+  background-color: #1b1b1b;
+}
+
+.button-delete {
+  background-color: #ea9090 !important;
+  color: black !important;
+}
+
+.button-delete:active {
+  background-color: #e75454 !important;
+}
+
+.button-equal {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  background-color: #90cfb0 !important;
+  color: black !important;
+}
+
+.button-equal:active {
+  background-color: #66dba1 !important;
+}
