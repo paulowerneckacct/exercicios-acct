@@ -22,6 +22,15 @@ const TextWords = () => {
     return reverted.toString().replace(/,/gi, "");
   };
 
+  const AsciiText = () => {
+    let asciiTxt = "";
+    let i;
+    for (i in frase) {
+      asciiTxt = asciiTxt + " " + frase[i].charCodeAt(0);
+    }
+    return asciiTxt;
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -29,6 +38,9 @@ const TextWords = () => {
       },
       {
         text: RevertText(),
+      },
+      {
+        text: AsciiText(),
       },
     ]);
     RevertText();
