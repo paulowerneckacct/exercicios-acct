@@ -10,12 +10,28 @@ const TextWords = () => {
     return frase.toUpperCase();
   };
 
+  const RevertText = () => {
+    let reverted = [];
+    let i;
+    let d;
+
+    for (i = 0, d = frase.length - 1; i < frase.length, d >= 0; d--, i++) {
+      reverted[i] = frase[d];
+    }
+
+    return reverted.toString().replace(/,/gi, "");
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
         text: UpperCase(),
       },
+      {
+        text: RevertText(),
+      },
     ]);
+    RevertText();
   }, []);
 
   return (
