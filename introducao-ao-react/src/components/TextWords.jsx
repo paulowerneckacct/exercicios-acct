@@ -47,7 +47,7 @@ const TextWords = () => {
         noVocalTxt[i] = frase[i];
       }
     }
-    return noVocalTxt.toString();
+    return noVocalTxt.toString().replace(/,/gi, " ");
   };
 
   const ChangeOrder = () => {
@@ -114,6 +114,23 @@ const TextWords = () => {
     return morseCoded.toString().replace(/,/gi, " ");
   };
 
+  const RandomCase = () => {
+    let randomTxT = [];
+    let i;
+    for (i in frase) {
+      if (frase[i] == " ") {
+        randomTxT[i] = frase[i];
+      } else {
+        if (Math.floor(Math.random(0, 10) * 10) >= 5) {
+          randomTxT[i] = frase[i].toUpperCase();
+        } else {
+          randomTxT[i] = frase[i];
+        }
+      }
+    }
+    return randomTxT.toString().replace(/,/gi, "");
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -133,6 +150,9 @@ const TextWords = () => {
       },
       {
         text: MorseCode(),
+      },
+      {
+        text: RandomCase(),
       },
     ]);
   }, []);
