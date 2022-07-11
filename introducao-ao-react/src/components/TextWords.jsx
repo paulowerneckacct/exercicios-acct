@@ -31,6 +31,25 @@ const TextWords = () => {
     return asciiTxt;
   };
 
+  const NoVocals = () => {
+    let i;
+    let noVocalTxt = [];
+    for (i in frase) {
+      if (
+        frase[i] == "a" ||
+        frase[i] == "e" ||
+        frase[i] == "i" ||
+        frase[i] == "o" ||
+        frase[i] == "u"
+      ) {
+        noVocalTxt[i] = "*";
+      } else {
+        noVocalTxt[i] = frase[i];
+      }
+    }
+    return noVocalTxt.toString();
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -41,6 +60,9 @@ const TextWords = () => {
       },
       {
         text: AsciiText(),
+      },
+      {
+        text: NoVocals(),
       },
     ]);
     RevertText();
