@@ -50,6 +50,24 @@ const TextWords = () => {
     return noVocalTxt.toString();
   };
 
+  const ChangeOrder = () => {
+    let i;
+    let aux = false;
+    let firstTxt = [];
+    let secondTxt = [];
+    for (i in frase) {
+      if (aux == false) {
+        firstTxt[i] = frase[i];
+      } else {
+        secondTxt[i] = frase[i];
+      }
+      if (frase[i] == " ") {
+        aux = true;
+      }
+    }
+    return (secondTxt + " " + firstTxt).toString().replace(/,/gi, "");
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -63,6 +81,9 @@ const TextWords = () => {
       },
       {
         text: NoVocals(),
+      },
+      {
+        text: ChangeOrder(),
       },
     ]);
     RevertText();
