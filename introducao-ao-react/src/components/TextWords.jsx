@@ -68,6 +68,52 @@ const TextWords = () => {
     return (secondTxt + " " + firstTxt).toString().replace(/,/gi, "");
   };
 
+  const MorseCode = () => {
+    let i;
+    let count2;
+    let morseCoded = [];
+    const morse = {
+      a: ".-",
+      b: "-...",
+      c: "-.-.",
+      d: "-..",
+      e: ".",
+      f: "..-.",
+      g: "--.",
+      h: "....",
+      i: "..",
+      j: ".---",
+      k: "-.-",
+      l: ".-..",
+      m: "--",
+      n: "-.",
+      o: "---",
+      p: ".--.",
+      q: "--.-",
+      r: ".-.",
+      s: "...",
+      t: "-",
+      u: "..-",
+      v: "...-",
+      w: ".--",
+      x: "-..-",
+      y: "-.--",
+      z: "--..",
+    };
+    for (i in frase) {
+      if (frase[i] == " ") {
+        morseCoded[i] = "/";
+      } else {
+        for (count2 in morse) {
+          if (frase[i] == count2) {
+            morseCoded[i] = morse[count2];
+          }
+        }
+      }
+    }
+    return morseCoded.toString().replace(/,/gi, " ");
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -85,8 +131,10 @@ const TextWords = () => {
       {
         text: ChangeOrder(),
       },
+      {
+        text: MorseCode(),
+      },
     ]);
-    RevertText();
   }, []);
 
   return (
