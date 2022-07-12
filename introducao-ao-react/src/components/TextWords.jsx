@@ -242,7 +242,7 @@ const TextWords = () => {
   return (
     <div className="container-texts">
       {helloTxts.map((helloTxts) => (
-        <div key={helloTxts.text}>
+        <div className="infos" key={helloTxts.text}>
           <p className="text">{helloTxts.text}</p>
           <p className="date"> {date} </p>
         </div>

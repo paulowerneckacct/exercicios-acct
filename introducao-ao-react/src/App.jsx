@@ -5,7 +5,7 @@ import TextWords from "./components/TextWords";
 function App() {
   return (
     <div className="App">
-      <h1>10 formas de hello world!</h1>
+      <h1>10 FORMAS DISTINTAS DE HELLO WORLD!</h1>
       <TextWords />
     </div>
   );
