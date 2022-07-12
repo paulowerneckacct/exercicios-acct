@@ -5,6 +5,7 @@ import { useEffect } from "react";
 const TextWords = () => {
   const frase = "hello world";
   const [helloTxts, setHelloTxts] = useState([]);
+  const [date, setDate] = useState("");
 
   const UpperCase = () => {
     return frase.toUpperCase();
@@ -194,6 +195,10 @@ const TextWords = () => {
     return ordered.toString().replace(/,/gi, "");
   };
 
+  const refreshTime = () => {
+    setDate(new Date().toLocaleString());
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -228,12 +233,19 @@ const TextWords = () => {
         text: AlternateUpperCase(),
       },
     ]);
+
+    setInterval(() => {
+      refreshTime();
+    }, 1000);
   }, []);
 
   return (
-    <div>
+    <div className="container-texts">
       {helloTxts.map((helloTxts) => (
-        <p key={helloTxts.text}>{helloTxts.text}</p>
+        <div key={helloTxts.text}>
+          <p className="text">{helloTxts.text}</p>
+          <p className="date"> {date} </p>
+        </div>
       ))}
     </div>
   );
