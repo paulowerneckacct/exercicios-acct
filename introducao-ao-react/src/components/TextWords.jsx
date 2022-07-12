@@ -172,6 +172,13 @@ const TextWords = () => {
     return binaryTxt.toString().replace(/,/gi, "");
   };
 
+  const HalfUpperCase = () => {
+    let Txt1 = frase.slice(0, 5);
+    let Txt2 = frase.slice(5, 11);
+
+    return Txt1 + Txt2.toUpperCase();
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -197,6 +204,9 @@ const TextWords = () => {
       },
       {
         text: BinaryText(),
+      },
+      {
+        text: HalfUpperCase(),
       },
     ]);
   }, []);
