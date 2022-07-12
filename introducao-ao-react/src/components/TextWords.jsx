@@ -179,6 +179,21 @@ const TextWords = () => {
     return Txt1 + Txt2.toUpperCase();
   };
 
+  const AlternateUpperCase = () => {
+    let i;
+    let ordered = [];
+
+    for (i in frase) {
+      if (i % 2 !== 0) {
+        ordered[i] = frase[i].toUpperCase();
+      } else {
+        ordered[i] = frase[i];
+      }
+    }
+
+    return ordered.toString().replace(/,/gi, "");
+  };
+
   useEffect(() => {
     setHelloTxts([
       {
@@ -207,6 +222,10 @@ const TextWords = () => {
       },
       {
         text: HalfUpperCase(),
+      },
+      ,
+      {
+        text: AlternateUpperCase(),
       },
     ]);
   }, []);
