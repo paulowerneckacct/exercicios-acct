@@ -25,28 +25,32 @@ const TextWords = () => {
   const AsciiText = () => {
     let asciiTxt = "";
     let i;
+
     for (i in frase) {
       asciiTxt = asciiTxt + " " + frase[i].charCodeAt(0);
     }
+
     return asciiTxt;
   };
 
   const NoVocals = () => {
     let i;
     let noVocalTxt = [];
+
     for (i in frase) {
       if (
-        frase[i] == "a" ||
-        frase[i] == "e" ||
-        frase[i] == "i" ||
-        frase[i] == "o" ||
-        frase[i] == "u"
+        frase[i] === "a" ||
+        frase[i] === "e" ||
+        frase[i] === "i" ||
+        frase[i] === "o" ||
+        frase[i] === "u"
       ) {
         noVocalTxt[i] = "*";
       } else {
         noVocalTxt[i] = frase[i];
       }
     }
+
     return noVocalTxt.toString().replace(/,/gi, " ");
   };
 
@@ -55,16 +59,18 @@ const TextWords = () => {
     let aux = false;
     let firstTxt = [];
     let secondTxt = [];
+
     for (i in frase) {
-      if (aux == false) {
+      if (aux === false) {
         firstTxt[i] = frase[i];
       } else {
         secondTxt[i] = frase[i];
       }
-      if (frase[i] == " ") {
+      if (frase[i] === " ") {
         aux = true;
       }
     }
+
     return (secondTxt + " " + firstTxt).toString().replace(/,/gi, "");
   };
 
@@ -100,25 +106,28 @@ const TextWords = () => {
       y: "-.--",
       z: "--..",
     };
+
     for (i in frase) {
-      if (frase[i] == " ") {
+      if (frase[i] === " ") {
         morseCoded[i] = "/";
       } else {
         for (count2 in morse) {
-          if (frase[i] == count2) {
+          if (frase[i] === count2) {
             morseCoded[i] = morse[count2];
           }
         }
       }
     }
+
     return morseCoded.toString().replace(/,/gi, " ");
   };
 
   const RandomCase = () => {
     let randomTxT = [];
     let i;
+
     for (i in frase) {
-      if (frase[i] == " ") {
+      if (frase[i] === " ") {
         randomTxT[i] = frase[i];
       } else {
         if (Math.floor(Math.random(0, 10) * 10) >= 5) {
@@ -128,7 +137,39 @@ const TextWords = () => {
         }
       }
     }
+
     return randomTxT.toString().replace(/,/gi, "");
+  };
+
+  const BinaryText = () => {
+    let count1, count2, count3;
+    let letterA;
+    let binaryTxt = [];
+    let repetitions = [];
+
+    for (count1 in frase) {
+      letterA = [0, 1, 1, 0, 0, 0, 0, 1];
+      repetitions = frase[count1].charCodeAt(0) - "a".charCodeAt(0);
+
+      if (frase[count1] !== " ") {
+        for (count2 = 0; count2 <= repetitions - 1; count2++) {
+          for (count3 = letterA.length - 1; count3 >= 0; count3--) {
+            if (letterA[count3] === 1) {
+              letterA[count3] = 0;
+            } else {
+              letterA[count3] = 1;
+              break;
+            }
+          }
+        }
+      } else {
+        letterA = "00100000";
+      }
+
+      binaryTxt[count1] = letterA + " ";
+    }
+
+    return binaryTxt.toString().replace(/,/gi, "");
   };
 
   useEffect(() => {
@@ -153,6 +194,9 @@ const TextWords = () => {
       },
       {
         text: RandomCase(),
+      },
+      {
+        text: BinaryText(),
       },
     ]);
   }, []);
